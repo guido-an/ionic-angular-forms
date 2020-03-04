@@ -21,11 +21,13 @@ import {
     console.log(form, 'my form')
   }
 } */
+
+/* Reactive Form */
 export class HomePage {
   // new instance
   dataForm: FormGroup
 
-  // creates a new FormControl and FormGroup
+  // FormBuilder creates a new FormControl and FormGroup
   constructor(formBuilder: FormBuilder) {
     this.dataForm = formBuilder.group({
       username: new FormControl('', [

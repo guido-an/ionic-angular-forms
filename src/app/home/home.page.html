@@ -30,13 +30,16 @@
   </form>
 </ion-content> -->
 
+<!-- Reactive Form -->
 
 <form [formGroup]="dataForm" (ngSubmit)="login(dataForm)">
   <ion-item>
     <ion-label for="username">Username</ion-label>
+
     <ion-input type="text" formControlName="username"></ion-input>
   </ion-item>
 
+<!--  Validation on 'username' -->
   <div *ngIf="dataForm.get('username').hasError('required') && (dataForm.get('username').dirty || dataForm.get('username').touched )">
     invalid username
   </div> 
