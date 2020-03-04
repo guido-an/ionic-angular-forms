@@ -15,7 +15,7 @@
 </ion-content>
 <ion-content>
 
- <!--  Template Driven Form -->
+ <!--  TEMPLATE DRIVEN FORM -->
 <!-- 
   <form #form="ngForm" (ngSubmit)="login(form)">
     <ion-item>
@@ -30,26 +30,26 @@
   </form>
 </ion-content> -->
 
-<!-- Reactive Form -->
-
+<!-- REACTIVE FORM -->
+<!-- [formGroup]="dataForm" | (ngSubmit)="login(dataForm)" -->
 <form [formGroup]="dataForm" (ngSubmit)="login(dataForm)">
   <ion-item>
     <ion-label for="username">Username</ion-label>
-
+   <!--  formControlName="username" -->
     <ion-input type="text" formControlName="username"></ion-input>
   </ion-item>
-
 <!--  Validation on 'username' -->
   <div *ngIf="dataForm.get('username').hasError('required') && (dataForm.get('username').dirty || dataForm.get('username').touched )">
     invalid username
   </div> 
-
   <ion-item>
     <ion-label for="password">Password</ion-label>
     <ion-input type="password" formControlName="password"></ion-input>
   </ion-item>
+  <!-- If the form is not valid the button isn't clickable -->
   <ion-button type="submit" color="primary" [disabled]="!dataForm.valid">Submit</ion-button>
 </form>
+<!-- Just to check if the form is valid -->
 <p>
   Form Status: {{ dataForm.status }}
 </p>

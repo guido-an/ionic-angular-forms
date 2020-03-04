@@ -13,7 +13,7 @@ import {
   styleUrls: ['home.page.scss']
 })
 
-/* Template Driven Form */
+/* TEMPLATE DRIVEN FORM */
 /* export class HomePage {
   constructor() {}
 
@@ -22,7 +22,7 @@ import {
   }
 } */
 
-/* Reactive Form */
+/* REACTIVE FORM */
 export class HomePage {
   // new instance
   dataForm: FormGroup
