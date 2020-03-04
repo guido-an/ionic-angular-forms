@@ -26,7 +26,6 @@ import {
 export class HomePage {
   // new instance
   dataForm: FormGroup
-  error: false
 
   // FormBuilder creates a new FormControl and FormGroup
   constructor(formBuilder: FormBuilder) {
