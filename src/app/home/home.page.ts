@@ -26,6 +26,7 @@ import {
 export class HomePage {
   // new instance
   dataForm: FormGroup
+  error: false
 
   // FormBuilder creates a new FormControl and FormGroup
   constructor(formBuilder: FormBuilder) {
@@ -34,7 +35,10 @@ export class HomePage {
         Validators.required,
         Validators.minLength(4)
       ]),
-      password: ''
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ])
     })
   }
   login(data) {

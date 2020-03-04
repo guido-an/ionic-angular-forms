@@ -33,19 +33,26 @@
 <!-- REACTIVE FORM -->
 <!-- [formGroup]="dataForm" | (ngSubmit)="login(dataForm)" -->
 <form [formGroup]="dataForm" (ngSubmit)="login(dataForm)">
+  
   <ion-item>
-    <ion-label for="username">Username</ion-label>
-   <!--  formControlName="username" -->
-    <ion-input type="text" formControlName="username"></ion-input>
+      <ion-label for="username">Username</ion-label>
+     <!--  formControlName="username" -->
+      <ion-input type="text" formControlName="username"></ion-input>
   </ion-item>
-<!--  Validation on 'username' -->
+    <!--  Validation on 'username' -->
   <div *ngIf="dataForm.get('username').hasError('required') && (dataForm.get('username').dirty || dataForm.get('username').touched )">
     invalid username
   </div> 
+
+   <!--  Same as above -->
   <ion-item>
     <ion-label for="password">Password</ion-label>
     <ion-input type="password" formControlName="password"></ion-input>
   </ion-item>
+  <div *ngIf="dataForm.get('password').hasError('required') && (dataForm.get('password').dirty || dataForm.get('password').touched )">
+    invalid password
+  </div> 
+  
   <!-- If the form is not valid the button isn't clickable -->
   <ion-button type="submit" color="primary" [disabled]="!dataForm.valid">Submit</ion-button>
 </form>
