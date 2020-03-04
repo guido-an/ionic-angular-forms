@@ -9,12 +9,47 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Form</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>
+<ion-content>
+
+ <!--  Template Driven Form -->
+<!-- 
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-item>
+      <ion-label position="floating" for="username">Username</ion-label>
+      <ion-input type="text" name="username" ngModel></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="password">Password</ion-label>
+      <ion-input type="password" name="password" ngModel></ion-input>
+    </ion-item>
+    <ion-button type="submit" color="primary">Submit</ion-button>
+  </form>
+</ion-content> -->
+
+
+<form [formGroup]="dataForm" (ngSubmit)="login(dataForm)">
+  <ion-item>
+    <ion-label for="username">Username</ion-label>
+    <ion-input type="text" formControlName="username"></ion-input>
+  </ion-item>
+
+  <div *ngIf="dataForm.get('username').hasError('required') && (dataForm.get('username').dirty || dataForm.get('username').touched )">
+    invalid username
+  </div> 
+
+  <ion-item>
+    <ion-label for="password">Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+  </ion-item>
+  <ion-button type="submit" color="primary" [disabled]="!dataForm.valid">Submit</ion-button>
+</form>
+<p>
+  Form Status: {{ dataForm.status }}
+</p>
+</ion-content>
+
+
